@@ -6,3 +6,11 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Steps to create react project
+
+- npm create vite@latest [name-of-your-project] -- --template react
+- cd [your new project directory]
+- npm install react-router-dom localforage match-sorter sort-by
+- install css frameworks if  needed
+
