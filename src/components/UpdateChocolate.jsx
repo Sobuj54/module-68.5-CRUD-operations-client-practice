@@ -16,24 +16,24 @@ const UpdateChocolate = () => {
     const name = form.name.value;
     const country = form.country.value;
 
-    const createdChocolate = { name, country, select: quality };
+    const updatedChocolate = { name, country, select: quality };
 
-    console.log(createdChocolate);
+    console.log(updatedChocolate);
 
     fetch(`http://localhost:5000/chocolates/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(createdChocolate),
+      body: JSON.stringify(updatedChocolate),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success",
-            text: "Successfully added new chocolate",
+            text: "Successfully updated new chocolate",
             icon: "success",
             confirmButtonText: "close",
           });
