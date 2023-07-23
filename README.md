@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 # Steps to create react project
 
 - npm create vite@latest [name-of-your-project] -- --template react
-- cd [your new project directory]
+- cd [your-new-project-directory]
 - npm install react-router-dom localforage match-sorter sort-by
 - install css frameworks if  needed
 
