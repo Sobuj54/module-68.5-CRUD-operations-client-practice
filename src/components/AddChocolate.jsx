@@ -14,7 +14,7 @@ const AddChocolate = () => {
     const name = form.name.value;
     const country = form.country.value;
 
-    const createdChocolate = { name, country, quality };
+    const createdChocolate = { name, country, select: quality };
 
     console.log(createdChocolate);
 
@@ -93,6 +93,7 @@ const AddChocolate = () => {
               </label>
               <select
                 required
+                defaultValue={quality}
                 onChange={(e) => setQuality(e.target.value)}
                 className="w-full select select-bordered">
                 <option></option>

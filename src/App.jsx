@@ -1,9 +1,12 @@
 import "./App.css";
 import { useLoaderData, Link } from "react-router-dom";
 import AllChocolates from "./components/AllChocolates";
+import { useState } from "react";
 
 function App() {
-  const chocolates = useLoaderData();
+  const loadedChocolates = useLoaderData();
+
+  const [chocolates, setChocolates] = useState(loadedChocolates);
 
   return (
     <div className="w-11/12 mx-auto mt-10">
@@ -32,7 +35,9 @@ function App() {
             {chocolates.map((chocolate) => (
               <AllChocolates
                 key={chocolate._id}
-                chocolate={chocolate}></AllChocolates>
+                chocolate={chocolate}
+                chocolates={chocolates}
+                setChocolates={setChocolates}></AllChocolates>
             ))}
           </tbody>
         </table>
