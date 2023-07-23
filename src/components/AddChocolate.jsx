@@ -23,7 +23,7 @@ const AddChocolate = () => {
       <div className=" mt-10">
         <form onSubmit={handleAddChocolate} className="w-3/5 mx-auto">
           {/* chocolate name field */}
-          <div className="form-control">
+          <div className="form-control mt-3">
             <label className="label">
               <span className="label-text">Name</span>
             </label>
@@ -37,7 +37,7 @@ const AddChocolate = () => {
             </label>
           </div>
           {/* chocolate country field */}
-          <div className="form-control">
+          <div className="form-control mt-3">
             <label className="label">
               <span className="label-text">Country</span>
             </label>
@@ -51,7 +51,7 @@ const AddChocolate = () => {
             </label>
           </div>
           {/* category with drop down options */}
-          <div className="form-control mt-4 ">
+          <div className="form-control mt-3 ">
             <div>
               <label className="label">
                 <span className="label-text">Choose an option</span>
@@ -70,8 +70,8 @@ const AddChocolate = () => {
           </div>
           <input
             type="submit"
-            className="btn btn-neutral mt-4 w-full"
-            placeholder="Add Chocolate"
+            value="Add a Chocolate"
+            className="btn btn-neutral mt-7 w-full"
           />
         </form>
       </div>
