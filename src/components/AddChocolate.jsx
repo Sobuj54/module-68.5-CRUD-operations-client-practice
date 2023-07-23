@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const AddChocolate = () => {
   const [quality, setQuality] = useState();
@@ -35,13 +38,24 @@ const AddChocolate = () => {
         }
       });
   };
+
   return (
-    <div>
-      <h2 className="text-4xl bg-[#61222c] py-6 text-white font-bold rounded-md">
+    <div className="w-11/12 mx-auto mt-10">
+      <h2 className="text-4xl text-center bg-[#61222c] py-6 text-white font-bold rounded-md">
         Chocolate management system
       </h2>
+      <Link to="/">
+        <button className=" mt-6  border-2 py-1 px-3">
+          <FontAwesomeIcon className="mr-3" icon={faArrowLeft} />
+          All Chocolates
+        </button>
+      </Link>
 
-      <div className=" mt-10">
+      <div className=" mt-10 bg-slate-200 py-10 rounded-xl mb-20">
+        <h2 className="text-3xl font-bold text-center mb-2">New Chocolates</h2>
+        <p className="mb-10 text-center">
+          Use the form below to create new products
+        </p>
         <form onSubmit={handleAddChocolate} className="w-3/5 mx-auto">
           {/* chocolate name field */}
           <div className="form-control mt-3">
