@@ -1,5 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faPen } from "@fortawesome/free-solid-svg-icons";
+
 const AllChocolates = ({ chocolate }) => {
-  const { _id, name, country, select } = chocolate;
+  const { name, country, select } = chocolate;
 
   return (
     <>
@@ -14,7 +17,16 @@ const AllChocolates = ({ chocolate }) => {
           <p>{country}</p>
         </td>
         <td>{select}</td>
-        <th> </th>
+        <th>
+          <FontAwesomeIcon
+            className="mr-3 bg-slate-300 p-3 rounded-md"
+            icon={faPen}
+          />
+          <FontAwesomeIcon
+            className="bg-orange-300 p-3 rounded-md"
+            icon={faXmark}
+          />
+        </th>
       </tr>
     </>
   );
