@@ -1,13 +1,15 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-const AddChocolate = () => {
+const UpdateChocolate = () => {
+  const chocolate = useLoaderData();
+  const { _id, name, country } = chocolate;
   const [quality, setQuality] = useState();
 
-  const handleAddChocolate = (event) => {
+  const handleUpdateChocolate = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -18,8 +20,8 @@ const AddChocolate = () => {
 
     console.log(createdChocolate);
 
-    fetch("http://localhost:5000/chocolates", {
-      method: "POST",
+    fetch(`http://localhost:5000/chocolates/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -52,11 +54,13 @@ const AddChocolate = () => {
       </Link>
 
       <div className=" mt-10 bg-slate-200 py-10 rounded-xl mb-20">
-        <h2 className="text-3xl font-bold text-center mb-2">New Chocolates</h2>
+        <h2 className="text-3xl font-bold text-center mb-2">
+          Update Chocolates
+        </h2>
         <p className="mb-10 text-center">
-          Use the form below to create new products
+          Use the form below to update products
         </p>
-        <form onSubmit={handleAddChocolate} className="w-3/5 mx-auto">
+        <form onSubmit={handleUpdateChocolate} className="w-3/5 mx-auto">
           {/* chocolate name field */}
           <div className="form-control mt-3">
             <label className="label">
@@ -68,6 +72,7 @@ const AddChocolate = () => {
                 placeholder="Chocolate Name"
                 className="input input-bordered rounded-md w-full"
                 name="name"
+                defaultValue={name}
               />
             </label>
           </div>
@@ -82,6 +87,7 @@ const AddChocolate = () => {
                 placeholder="Chocolate Country Name"
                 className="input input-bordered rounded-md w-full"
                 name="country"
+                defaultValue={country}
               />
             </label>
           </div>
@@ -104,7 +110,7 @@ const AddChocolate = () => {
           </div>
           <input
             type="submit"
-            value="Add a Chocolate"
+            value="Update a Chocolate"
             className="btn btn-neutral mt-7 w-full"
           />
         </form>
@@ -113,4 +119,4 @@ const AddChocolate = () => {
   );
 };
 
-export default AddChocolate;
+export default UpdateChocolate;
