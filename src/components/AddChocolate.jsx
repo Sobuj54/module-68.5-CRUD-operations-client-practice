@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const AddChocolate = () => {
   const [quality, setQuality] = useState();
@@ -13,6 +14,26 @@ const AddChocolate = () => {
     const createdChocolate = { name, country, select: quality };
 
     console.log(createdChocolate);
+
+    fetch("http://localhost:5000/chocolates", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createdChocolate),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Successfully added new chocolate",
+            icon: "success",
+            confirmButtonText: "close",
+          });
+        }
+      });
   };
   return (
     <div>
