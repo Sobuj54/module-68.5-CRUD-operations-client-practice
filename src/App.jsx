@@ -1,5 +1,6 @@
 import "./App.css";
 import { useLoaderData, Link } from "react-router-dom";
+import AllChocolates from "./components/AllChocolates";
 
 function App() {
   const chocolates = useLoaderData();
@@ -14,6 +15,28 @@ function App() {
           <span className="text-xl">+</span> New Chocolate
         </button>
       </Link>
+      {/* all chocolate showing */}
+
+      <div className="overflow-x-auto mt-10">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Country/Factory</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chocolates.map((chocolate) => (
+              <AllChocolates
+                key={chocolate._id}
+                chocolate={chocolate}></AllChocolates>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
